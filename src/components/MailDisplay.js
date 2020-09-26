@@ -1,10 +1,10 @@
 import { makeStyles, Paper, TextField, Typography } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
-import ButtonGroup from "./ButtonGroup";
-import { useDispatch } from "react-redux";
-import { useHistory, useLocation } from "react-router";
+import { useLocation } from "react-router";
+import { useSelector } from "react-redux";
 
-import { deleteMail, sendMail } from "../store/actions/mailsActions";
+import AllMailButtons from "./AllMailsButtons";
+import ButtonGroup from "./ButtonGroup";
 
 const useStyles = makeStyles({
   mailDisplayPaper: {
@@ -30,9 +30,8 @@ const useStyles = makeStyles({
 
 const MailDisplay = ({ mail }) => {
   const classes = useStyles();
-  const dispatch = useDispatch();
   const location = useLocation();
-  const history = useHistory();
+  const unChangedmail = useSelector((state) => state.mails.allmails);
 
   //Component level state
   const [from, setFrom] = useState("");
@@ -41,26 +40,23 @@ const MailDisplay = ({ mail }) => {
   const [bcc, setBCC] = useState("");
   const [subject, setSubject] = useState("");
   const [body, setBody] = useState("");
+  const [editingAllowed, setEditingAllowed] = useState(false);
 
-  //Event handlers
-  const deleteClickedHandler = () => {
-    dispatch(deleteMail(mail.id, location.pathname));
+  //Helper Functions
+  const convertToObject = (fromFolder) => {
+    return {
+      from: from,
+      to: to,
+      cc: cc,
+      bcc: bcc,
+      body: body,
+      subject: subject,
+      fromFolder: fromFolder,
+    };
   };
-  const sendClickedHandler = async () => {
-    await dispatch(
-      sendMail({
-        from: from,
-        to: to,
-        cc: cc,
-        bcc: bcc,
-        body: body,
-        subject: subject,
-        fromFolder: "sent",
-      })
-    );
-  };
-  const discardClickedHandler = () => {
-    history.replace("/Inbox");
+
+  const editingAllowedHandler = () => {
+    setEditingAllowed((prevState) => !prevState);
   };
 
   //Hooks
@@ -74,6 +70,24 @@ const MailDisplay = ({ mail }) => {
       setBody(mail.body);
     }
   }, [mail]);
+
+  useEffect(() => {
+    if (mail) {
+      const unChanged = unChangedmail.find((allmail) => allmail.id === mail.id);
+      setFrom(unChanged.from);
+      setTo(unChanged.to);
+      setCC(unChanged.cc);
+      setBCC(unChanged.bcc);
+      setSubject(unChanged.subject);
+      setBody(unChanged.body);
+    }
+  }, [editingAllowed]);
+
+  useEffect(() => {
+    if (editingAllowed) {
+      setEditingAllowed(false);
+    }
+  }, [location.pathname, mail]);
 
   return (
     <Paper className={classes.mailDisplayPaper}>
@@ -104,7 +118,7 @@ const MailDisplay = ({ mail }) => {
             id="emailTo"
             value={to}
             InputProps={{
-              readOnly: mail ? true : false,
+              readOnly: mail && !editingAllowed ? true : false,
             }}
             fullWidth
             size="small"
@@ -122,7 +136,7 @@ const MailDisplay = ({ mail }) => {
             id="emailCC"
             value={cc}
             InputProps={{
-              readOnly: mail ? true : false,
+              readOnly: mail && !editingAllowed ? true : false,
             }}
             fullWidth
             size="small"
@@ -140,7 +154,7 @@ const MailDisplay = ({ mail }) => {
             id="emailBCC"
             value={bcc}
             InputProps={{
-              readOnly: mail ? true : false,
+              readOnly: mail && !editingAllowed ? true : false,
             }}
             fullWidth
             size="small"
@@ -158,7 +172,7 @@ const MailDisplay = ({ mail }) => {
             id="emailSubject"
             value={subject}
             InputProps={{
-              readOnly: mail ? true : false,
+              readOnly: mail && !editingAllowed ? true : false,
             }}
             fullWidth
             size="small"
@@ -171,9 +185,9 @@ const MailDisplay = ({ mail }) => {
         <div className={classes.mailDisplayBodyDiv}>
           <TextField
             id="emailBody"
-            defaultValue={body}
+            value={body}
             InputProps={{
-              readOnly: mail ? true : false,
+              readOnly: mail && !editingAllowed ? true : false,
             }}
             fullWidth
             size="small"
@@ -186,15 +200,23 @@ const MailDisplay = ({ mail }) => {
           />
         </div>
         <div>
-          <ButtonGroup
-            deleteClickedHandler={deleteClickedHandler}
-            sendClickedHandler={sendClickedHandler}
-            discardClickedHandler={discardClickedHandler}
-            enableSend={
-              from !== "" && to !== "" && body !== "" && subject !== ""
-            }
-            mailId={mail ? mail.id : null}
-          />
+          {location.pathname === "/AllMails" ? (
+            <AllMailButtons
+              mailId={mail ? mail.id : null}
+              fromFolder={mail ? mail.fromFolder : null}
+              isTrash={mail ? mail.isTrash : null}
+            />
+          ) : (
+            <ButtonGroup
+              enableSend={
+                from !== "" && to !== "" && body !== "" && subject !== ""
+              }
+              setEditing={editingAllowedHandler}
+              convertToObject={convertToObject}
+              mailId={mail ? mail.id : null}
+              editingAllowed={editingAllowed}
+            />
+          )}
         </div>
       </div>
     </Paper>

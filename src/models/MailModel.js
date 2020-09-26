@@ -1,5 +1,17 @@
 class Mail {
-  constructor(body, from, fromDate, fromFolder, id, subject, to, cc, bcc, key) {
+  constructor(
+    body,
+    from,
+    fromDate,
+    fromFolder,
+    id,
+    subject,
+    to,
+    cc,
+    bcc,
+    isTrash,
+    key
+  ) {
     this.body = body;
     this.from = from;
     this.fromDate = fromDate;
@@ -10,6 +22,7 @@ class Mail {
     this.bcc = bcc;
     this.to = to;
     this.key = key;
+    this.isTrash = isTrash;
   }
 }
 

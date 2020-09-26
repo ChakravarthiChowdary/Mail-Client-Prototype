@@ -7,6 +7,12 @@ import {
   SEND_MAIL_SUCCESS,
   SEND_MAIL_FAIL,
   SEND_MAIL_START,
+  SAVE_DRAFT_START,
+  SAVE_DRAFT_SUCCESS,
+  SAVE_DRAFT_FAIL,
+  RESTORE_DELETED_SUCCESS,
+  RESTORE_DELETED_FAIL,
+  RESTORE_DELETED_START,
 } from "../actions/mailsActions";
 import stateUpdate from "../../utils/stateUpdate";
 
@@ -22,10 +28,15 @@ const initialState = {
   deleteError: null,
   sendError: null,
   sendLoading: false,
+  draftLoading: false,
+  draftError: null,
+  restoreLoading: false,
+  restoreError: null,
 };
 
 const mailsReducer = (state = initialState, action) => {
   switch (action.type) {
+    //Get mails action types.
     case GET_MAILS_START:
       return stateUpdate(state, { loading: true });
     case GET_MAILS_SUCCESS:
@@ -41,6 +52,7 @@ const mailsReducer = (state = initialState, action) => {
       });
     case GET_MAILS_FAIL:
       return stateUpdate(state, { loading: false, error: action.payload });
+    //Delete mail action types.
     case DELETE_MAIL_SUCCESS:
       const updateState = {
         loading: false,
@@ -62,6 +74,7 @@ const mailsReducer = (state = initialState, action) => {
         loading: false,
         deleteError: action.payload,
       });
+    //Sending mail action types.
     case SEND_MAIL_START:
       return stateUpdate(state, { sendLoading: true });
     case SEND_MAIL_SUCCESS:
@@ -74,6 +87,37 @@ const mailsReducer = (state = initialState, action) => {
       return stateUpdate(state, {
         sendError: action.payload,
         sendLoading: false,
+      });
+    //Saving draft action types.
+    case SAVE_DRAFT_START:
+      return stateUpdate(state, { draftLoading: true });
+    case SAVE_DRAFT_SUCCESS:
+      return stateUpdate(state, {
+        draftLoading: false,
+        drafts: state.drafts.concat(action.payload),
+        draftError: null,
+      });
+    case SAVE_DRAFT_FAIL:
+      return stateUpdate(state, {
+        draftLoading: false,
+        draftError: action.payload,
+      });
+    case RESTORE_DELETED_START:
+      return stateUpdate(state, { restoreLoading: true });
+    case RESTORE_DELETED_SUCCESS:
+      const stateUpdated = {
+        restoreLoading: false,
+        trash: state.trash.filter((mail) => mail.id !== action.payload.id),
+        restoreError: null,
+      };
+      stateUpdated[action.payload.fromFolder] = state[
+        action.payload.fromFolder
+      ].concat(action.payload);
+      return stateUpdate(state, stateUpdated);
+    case RESTORE_DELETED_FAIL:
+      return stateUpdate(state, {
+        restoreLoading: false,
+        restoreError: action.payload,
       });
     default:
       return state;

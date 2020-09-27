@@ -22,6 +22,10 @@ export const RESTORE_DELETED_START = "RESTORE_DELETED_START";
 export const RESTORE_DELETED_SUCCESS = "RESTORE_DELETED_SUCCESS";
 export const RESTORE_DELETED_FAIL = "RESTORE_DELETED_FAIL";
 
+export const SAVE_SETTINGS_START = "SAVE_SETTINGS_START";
+export const SAVE_SETTINGS_SUCCESS = "SAVE_SETTINGS_SUCCESS";
+export const SAVE_SETTINGS_FAIL = "SAVE_SETTINGS_FAIL";
+
 export const getMails = () => {
   return async (dispatch) => {
     try {
@@ -29,6 +33,9 @@ export const getMails = () => {
       //Get all mails from the API.
       const response = await axios.get(
         "https://mail-client-afecb.firebaseio.com/mails/j743JnyWeSeR5vHIdNxbrrf3FAJ2.json"
+      );
+      const settingsResponce = await axios.get(
+        "https://mail-client-afecb.firebaseio.com/mails/j743JnyWeSeR5vHIdNxbrrf3FAJ2/settings.json"
       );
       let tempMails = [];
 
@@ -59,6 +66,7 @@ export const getMails = () => {
         draftMails: tempMails.filter((mail) => mail.key === "drafts"),
         spamMails: tempMails.filter((mail) => mail.key === "spam"),
         allMails: tempMails,
+        settings: settingsResponce.data,
       };
       dispatch({ type: GET_MAILS_SUCCESS, payload: mails });
     } catch (error) {
@@ -169,6 +177,21 @@ export const restoreDraft = (mail) => {
       dispatch({ type: RESTORE_DELETED_SUCCESS, payload: mail });
     } catch (error) {
       dispatch({ type: RESTORE_DELETED_FAIL, payload: error });
+    }
+  };
+};
+
+export const saveSettings = (settings) => {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: SAVE_SETTINGS_START });
+      await axios.patch(
+        `https://mail-client-afecb.firebaseio.com/mails/j743JnyWeSeR5vHIdNxbrrf3FAJ2/settings.json`,
+        settings
+      );
+      dispatch({ type: SAVE_SETTINGS_SUCCESS, payload: settings });
+    } catch (error) {
+      dispatch({ type: SAVE_SETTINGS_FAIL, payload: error });
     }
   };
 };

@@ -13,6 +13,9 @@ import {
   RESTORE_DELETED_SUCCESS,
   RESTORE_DELETED_FAIL,
   RESTORE_DELETED_START,
+  SAVE_SETTINGS_START,
+  SAVE_SETTINGS_SUCCESS,
+  SAVE_SETTINGS_FAIL,
 } from "../actions/mailsActions";
 import stateUpdate from "../../utils/stateUpdate";
 
@@ -32,6 +35,9 @@ const initialState = {
   draftError: null,
   restoreLoading: false,
   restoreError: null,
+  settings: null,
+  settingsLoading: false,
+  settingsError: null,
 };
 
 const mailsReducer = (state = initialState, action) => {
@@ -48,6 +54,7 @@ const mailsReducer = (state = initialState, action) => {
         drafts: action.payload.draftMails,
         spam: action.payload.spamMails,
         allmails: action.payload.allMails,
+        settings: action.payload.settings,
         error: null,
       });
     case GET_MAILS_FAIL:
@@ -118,6 +125,19 @@ const mailsReducer = (state = initialState, action) => {
       return stateUpdate(state, {
         restoreLoading: false,
         restoreError: action.payload,
+      });
+    case SAVE_SETTINGS_START:
+      return stateUpdate(state, { settingsLoading: true });
+    case SAVE_SETTINGS_SUCCESS:
+      return stateUpdate(state, {
+        settings: action.payload,
+        settingsLoading: false,
+        settingsError: null,
+      });
+    case SAVE_SETTINGS_FAIL:
+      return stateUpdate(state, {
+        settingsLoading: false,
+        settingsError: action.payload,
       });
     default:
       return state;

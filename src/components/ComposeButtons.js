@@ -14,6 +14,9 @@ const useStyles = makeStyles({
   buttonGroupButton: {
     marginRight: 10,
   },
+  composeButtonDiv: {
+    minWidth: 150,
+  },
 });
 
 const ComposeButtons = ({
@@ -37,34 +40,38 @@ const ComposeButtons = ({
       >
         Discard
       </Button>
-      {draftLoading ? (
-        <CircularProgress />
-      ) : (
-        <Button
-          variant="contained"
-          color="primary"
-          disabled={!enableSend}
-          className={classes.buttonGroupButton}
-          endIcon={<Save />}
-          onClick={saveDraftClickedHandler}
-        >
-          Save as draft
-        </Button>
-      )}
-      {sendLoading ? (
-        <CircularProgress />
-      ) : (
-        <Button
-          variant="contained"
-          color="primary"
-          className={classes.buttonGroupButton}
-          endIcon={<Forward />}
-          disabled={!enableSend}
-          onClick={sendClickedHandler}
-        >
-          Send
-        </Button>
-      )}
+      <div className={classes.composeButtonDiv}>
+        {draftLoading ? (
+          <CircularProgress size={23} />
+        ) : (
+          <Button
+            variant="contained"
+            color="primary"
+            disabled={!enableSend}
+            className={classes.buttonGroupButton}
+            endIcon={<Save />}
+            onClick={saveDraftClickedHandler}
+          >
+            Save as draft
+          </Button>
+        )}
+      </div>
+      <div className={classes.composeButtonDiv}>
+        {sendLoading ? (
+          <CircularProgress size={23} />
+        ) : (
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.buttonGroupButton}
+            endIcon={<Forward />}
+            disabled={!enableSend}
+            onClick={sendClickedHandler}
+          >
+            Send
+          </Button>
+        )}
+      </div>
     </div>
   );
 };

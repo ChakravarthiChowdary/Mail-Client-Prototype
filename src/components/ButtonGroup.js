@@ -14,6 +14,8 @@ const ButtonGroup = ({
   enableSend,
   convertToObject,
   setEditing,
+  fromFolder,
+  isTrash,
   editingAllowed,
 }) => {
   const location = useLocation();
@@ -42,7 +44,11 @@ const ButtonGroup = ({
         saveDraftClickedHandler={saveDraftClickedHandler}
       />
     );
-  } else if (location.pathname === "/Inbox" || location.pathname === "/Sent") {
+  } else if (
+    location.pathname === "/Inbox" ||
+    location.pathname === "/Sent" ||
+    ((fromFolder === "inbox" || fromFolder === "sent") && !isTrash)
+  ) {
     return (
       <InboxButtons
         mailId={mailId}
@@ -50,7 +56,7 @@ const ButtonGroup = ({
         setEditing={setEditing}
       />
     );
-  } else if (location.pathname === "/Trash") {
+  } else if (location.pathname === "/Trash" || isTrash) {
     return (
       <TrashButtons
         mailId={mailId}
@@ -58,7 +64,10 @@ const ButtonGroup = ({
         deleteClickedHandler={deleteClickedHandler}
       />
     );
-  } else if (location.pathname === "/Spam") {
+  } else if (
+    location.pathname === "/Spam" ||
+    (fromFolder === "spam" && !isTrash)
+  ) {
     return (
       <SpamButtons
         mailId={mailId}
@@ -66,7 +75,10 @@ const ButtonGroup = ({
         setEditing={setEditing}
       />
     );
-  } else if (location.pathname === "/Drafts") {
+  } else if (
+    location.pathname === "/Drafts" ||
+    (fromFolder === "drafts" && !isTrash)
+  ) {
     return (
       <DraftButtons
         mailId={mailId}

@@ -24,7 +24,7 @@ const useStyles = makeStyles({
   },
 });
 
-const MailItem = ({ mail, mailClick }) => {
+const MailItem = ({ mail, mailClick, style }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const location = useLocation();
@@ -48,7 +48,19 @@ const MailItem = ({ mail, mailClick }) => {
         />
       </div>
       <Divider className={classes.mailItemDivider} />
-      <div className={classes.mailItemDateDiv}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "flex-end",
+          ...style,
+        }}
+      >
+        {location.pathname === "/AllMails" && (
+          <Typography style={{ fontWeight: "bold" }}>
+            Folder: {mail.fromFolder.toUpperCase()}
+          </Typography>
+        )}
         <Typography>{mail.fromDate}</Typography>
       </div>
     </Paper>

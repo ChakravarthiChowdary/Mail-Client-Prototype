@@ -33,8 +33,10 @@ const Mails = ({ mails, mailClick }) => {
   const classes = useStyles();
   const location = useLocation();
   const deleteError = useSelector((state) => state.mails.deleteError);
+  const settings = useSelector((state) => state.mails.settings);
   const [currentPage, setCurrentPage] = useState(1);
   const [open, setOpen] = useState(false);
+  const [mailsPerPage, setMailsPerPage] = useState(5);
 
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
@@ -56,7 +58,12 @@ const Mails = ({ mails, mailClick }) => {
     else setOpen(false);
   }, [deleteError]);
 
-  const mailsPerPage = 5;
+  useEffect(() => {
+    if (settings && settings.mailsPerPage !== 5) {
+      setMailsPerPage(settings.mailsPerPage);
+    }
+  }, [settings]);
+
   const indexOfLastMail = currentPage * mailsPerPage;
   const indexOfFirstMail = indexOfLastMail - mailsPerPage;
   const currentMails = mails.slice(indexOfFirstMail, indexOfLastMail);
@@ -65,7 +72,16 @@ const Mails = ({ mails, mailClick }) => {
     <Fragment>
       <div className={classes.mailsMailItemDiv}>
         {currentMails.map((mail) => (
-          <MailItem key={mail.id} mail={mail} mailClick={mailClick} />
+          <MailItem
+            key={mail.id}
+            mail={mail}
+            mailClick={mailClick}
+            style={
+              location.pathname === "/AllMails"
+                ? { justifyContent: "space-between" }
+                : null
+            }
+          />
         ))}
       </div>
       <div className={classes.mailsPaginateDiv}>
@@ -78,7 +94,7 @@ const Mails = ({ mails, mailClick }) => {
       </div>
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="error">
-          {deleteError ? `${deleteError.message}\nCannot delete !` : ""}
+          {deleteError ? `${deleteError.message} Cannot delete !` : ""}
         </Alert>
       </Snackbar>
     </Fragment>

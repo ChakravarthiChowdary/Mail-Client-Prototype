@@ -1,0 +1,365 @@
+{
+  "mails": {
+    "j743JnyWeSeR5vHIdNxbrrf3FAJ2": {
+      "inbox": {
+        "i1": {
+          "body": "Hi Chakravarthi\n\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\n\nThanks and Regards,\nRakesh ",
+          "bcc": "team@test.com lead@test.com",
+          "cc": "chakravarthi@test.com",
+          "from": "rakeshsenapathi@gmail.com",
+          "fromDate": "11/03/2020",
+          "fromFolder": "inbox",
+          "id": "i1",
+          "subject": "Reg: Delay in delivery of items",
+          "to": "chakravarthi@gmail.com"
+        },
+        "i2": {
+          "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+          "bcc": "team@test.com lead@test.com",
+          "cc": "chakravarthi@test.com",
+          "from": "bharat@gmail.com",
+          "fromDate": "08/03/2020",
+          "fromFolder": "inbox",
+          "id": "i2",
+          "subject": "Reg: Change of delivery date.",
+          "to": "chakravarthi@gmail.com"
+        },
+        "i3": {
+          "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+          "bcc": "team@test.com lead@test.com",
+          "cc": "chakravarthi@test.com",
+          "from": "pragna@gmail.com",
+          "fromDate": "21/03/2020",
+          "fromFolder": "inbox",
+          "id": "i3",
+          "subject": "Reg: Celebrations on mens day.",
+          "to": "chakravarthi@gmail.com"
+        },
+        "i4": {
+          "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+          "bcc": "team@test.com lead@test.com",
+          "cc": "chakravarthi@test.com",
+          "from": "sivapothineni@gmail.com",
+          "fromDate": "31/04/2020",
+          "fromFolder": "inbox",
+          "id": "i4",
+          "subject": "Reg: Build deployment to QA.",
+          "to": "chakravarthi@gmail.com"
+        },
+        "i5": {
+          "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+          "bcc": "team@test.com lead@test.com",
+          "cc": "chakravarthi@test.com",
+          "from": "prasannagranenid@gmail.com",
+          "fromDate": "05/02/2020",
+          "fromFolder": "inbox",
+          "id": "i5",
+          "subject": "Reg: Build deployed to QA.",
+          "to": "chakravarthi@gmail.com"
+        },
+        "i6": {
+          "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+          "bcc": "team@test.com lead@test.com",
+          "cc": "chakravarthi@test.com",
+          "from": "pragna@gmail.com",
+          "fromDate": "26/03/2020",
+          "fromFolder": "inbox",
+          "id": "i6",
+          "subject": "Reg: Meeting scheduled for tommorow",
+          "to": "chakravarthi@gmail.com"
+        },
+        "i7": {
+          "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+          "bcc": "team@test.com lead@test.com",
+          "cc": "chakravarthi@test.com",
+          "from": "rakeshsenapathi@gmail.com",
+          "fromDate": "11/03/2020",
+          "fromFolder": "inbox",
+          "id": "i7",
+          "subject": "Reg: Delay in delivery of items",
+          "to": "chakravarthi@gmail.com"
+        },
+        "i8": {
+          "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+          "bcc": "team@test.com lead@test.com",
+          "cc": "chakravarthi@test.com",
+          "from": "prasannagranenid@gmail.com",
+          "fromDate": "05/02/2020",
+          "fromFolder": "inbox",
+          "id": "i8",
+          "subject": "Reg: Build deployed to QA.",
+          "to": "chakravarthi@gmail.com"
+        },
+        "i9": {
+          "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+          "bcc": "team@test.com lead@test.com",
+          "cc": "chakravarthi@test.com",
+          "from": "rakeshsenapathi@gmail.com",
+          "fromDate": "11/03/2020",
+          "fromFolder": "inbox",
+          "id": "i9",
+          "subject": "Reg: Delay in delivery of items",
+          "to": "chakravarthi@gmail.com"
+        },
+        "i10": {
+          "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+          "bcc": "team@test.com lead@test.com",
+          "cc": "priya@test.com chakri@test.com",
+          "from": "bharat@gmail.com",
+          "fromDate": "08/03/2020",
+          "fromFolder": "inbox",
+          "id": "i10",
+          "subject": "Reg: Change of delivery date.",
+          "to": "chakravarthi@gmail.com"
+        },
+        "i11": {
+          "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+          "bcc": "team@test.com lead@test.com",
+          "cc": "priya@test.com chakri@test.com",
+          "from": "pragna@gmail.com",
+          "fromDate": "21/03/2020",
+          "fromFolder": "inbox",
+          "id": "i11",
+          "subject": "Reg: Celebrations on mens day.",
+          "to": "chakravarthi@gmail.com"
+        },
+        "i12": {
+          "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+          "bcc": "team@test.com lead@test.com",
+          "cc": "priya@test.com chakri@test.com",
+          "from": "sivapothineni@gmail.com",
+          "fromDate": "31/04/2020",
+          "fromFolder": "inbox",
+          "id": "i12",
+          "subject": "Reg: Build deployment to QA.",
+          "to": "chakravarthi@gmail.com"
+        },
+        "i13": {
+          "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+          "bcc": "team@test.com lead@test.com",
+          "cc": "priya@test.com chakri@test.com",
+          "from": "prasannagranenid@gmail.com",
+          "fromDate": "05/02/2020",
+          "fromFolder": "inbox",
+          "id": "i13",
+          "subject": "Reg: Build deployed to QA.",
+          "to": "chakravarthi@gmail.com"
+        },
+        "i14": {
+          "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+          "bcc": "team@test.com lead@test.com",
+          "cc": "priya@test.com chakri@test.com",
+          "from": "pragna@gmail.com",
+          "fromDate": "26/03/2020",
+          "fromFolder": "inbox",
+          "id": "i14",
+          "subject": "Reg: Meeting scheduled for tommorow",
+          "to": "chakravarthi@gmail.com"
+        },
+        "i15": {
+          "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+          "bcc": "team@test.com lead@test.com",
+          "cc": "priya@test.com chakri@test.com",
+          "from": "rakeshsenapathi@gmail.com",
+          "fromDate": "11/03/2020",
+          "fromFolder": "inbox",
+          "id": "i15",
+          "subject": "Reg: Delay in delivery of items",
+          "to": "chakravarthi@gmail.com"
+        },
+        "i16": {
+          "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+          "bcc": "team@test.com lead@test.com",
+          "cc": "priya@test.com chakri@test.com",
+          "from": "prasannagranenid@gmail.com",
+          "fromDate": "05/02/2020",
+          "fromFolder": "inbox",
+          "id": "i16",
+          "subject": "Reg: Build deployed to QA.",
+          "to": "chakravarthi@gmail.com"
+        }
+      },
+      "trash": {
+        "t1": {
+          "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+          "isTrash": true,
+          "bcc": "lead@test.com priya@test.com test@test.com",
+          "cc": "priya@test.com chakri@test.com",
+          "from": "trashmail@gmail.com",
+          "fromDate": "11/03/2020",
+          "fromFolder": "drafts",
+          "id": "t1",
+          "subject": "Reg: Delay in delivery of items",
+          "to": "chakravarthi@gmail.com"
+        },
+        "t2": {
+          "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+          "isTrash": true,
+          "bcc": "lead@test.com priya@test.com test@test.com",
+          "cc": "priya@test.com chakri@test.com",
+          "from": "trashmail2@gmail.com",
+          "fromDate": "05/10/2020",
+          "fromFolder": "drafts",
+          "id": "t2",
+          "subject": "Reg: This is a trash mail",
+          "to": "chakravarthi@gmail.com"
+        },
+        "t3": {
+          "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+          "isTrash": true,
+          "bcc": "lead@test.com priya@test.com test@test.com",
+          "cc": "priya@test.com chakri@test.com",
+          "from": "trashmail3@gmail.com",
+          "fromDate": "12/10/2020",
+          "fromFolder": "drafts",
+          "id": "t3",
+          "subject": "Reg: trash mail 3",
+          "to": "chakravarthi@gmail.com"
+        }
+      },
+      "sent": {
+        "s1": {
+          "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+          "cc": "lead@test.com",
+          "bcc": "lead@test.com priya@test.com test@test.com",
+          "from": "chakravarthi@gmail.com",
+          "fromDate": "08/03/2020",
+          "fromFolder": "sent",
+          "id": "s1",
+          "subject": "Reg: Change of delivery date.",
+          "to": "bharat@gmail.com"
+        },
+        "s2": {
+          "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+          "cc": "lead@test.com",
+          "bcc": "lead@test.com priya@test.com test@test.com",
+          "from": "chakravarthi@gmail.com",
+          "fromDate": "21/03/2020",
+          "fromFolder": "sent",
+          "id": "s2",
+          "subject": "Reg: Celebrations on mens day.",
+          "to": "pragna@gmail.com"
+        },
+        "s3": {
+          "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+          "cc": "lead@test.com",
+          "bcc": "lead@test.com priya@test.com test@test.com",
+          "from": "chakravarthi@gmail.com",
+          "fromDate": "31/04/2020",
+          "fromFolder": "sent",
+          "id": "s3",
+          "subject": "Reg: Build deployment to QA.",
+          "to": "sivapothineni@gmail.com"
+        },
+        "s4": {
+          "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+          "cc": "lead@test.com",
+          "bcc": "lead@test.com priya@test.com test@test.com",
+          "from": "chakravarthi@gmail.com",
+          "fromDate": "05/02/2020",
+          "fromFolder": "sent",
+          "id": "s4",
+          "subject": "Reg: Build deployed to QA.",
+          "to": "prasannagranenid@gmail.com"
+        },
+        "s5": {
+          "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+          "cc": "lead@test.com",
+          "bcc": "lead@test.com priya@test.com test@test.com",
+          "from": "chakravarthi@gmail.com",
+          "fromDate": "26/03/2020",
+          "fromFolder": "sent",
+          "id": "s5",
+          "subject": "Reg: Meeting scheduled for tommorow",
+          "to": "pragna@gmail.com"
+        },
+        "s6": {
+          "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+          "cc": "lead@test.com",
+          "bcc": "lead@test.com priya@test.com test@test.com",
+          "from": "chakravarthi@gmail.com",
+          "fromDate": "11/03/2020",
+          "fromFolder": "sent",
+          "id": "s6",
+          "subject": "Reg: Delay in delivery of items",
+          "to": "rakeshsenapathi@gmail.com"
+        }
+      },
+      "drafts": {
+        "d1": {
+          "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+          "cc": "lead@test.com",
+          "bcc": "lead@test.com priya@test.com test@test.com",
+          "from": "chakravarthi@gmail.com",
+          "fromDate": "05/02/2020",
+          "fromFolder": "drafts",
+          "id": "d1",
+          "subject": "Reg: Build deployed to QA.",
+          "to": "prasannagranenid@gmail.com"
+        },
+        "d2": {
+          "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+          "cc": "lead@test.com",
+          "bcc": "lead@test.com priya@test.com test@test.com",
+          "from": "chakravarthi@gmail.com",
+          "fromDate": "26/03/2020",
+          "fromFolder": "drafts",
+          "id": "d2",
+          "subject": "Reg: Meeting scheduled for tommorow",
+          "to": "pragna@gmail.com"
+        },
+        "d3": {
+          "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+          "cc": "lead@test.com",
+          "bcc": "lead@test.com priya@test.com test@test.com",
+          "from": "chakravarthi@gmail.com",
+          "fromDate": "11/03/2020",
+          "fromFolder": "drafts",
+          "id": "d3",
+          "subject": "Reg: Delay in delivery of items",
+          "to": "rakeshsenapathi@gmail.com"
+        }
+      },
+      "spam": {
+        "sp1": {
+          "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+          "cc": "lead@test.com",
+          "bcc": "lead@test.com priya@test.com test@test.com",
+          "from": "spammail@gmail.com",
+          "fromDate": "05/02/2020",
+          "fromFolder": "spam",
+          "id": "sp1",
+          "subject": "Reg: spam mail box",
+          "to": "tospammail@gmail.com"
+        },
+        "sp2": {
+          "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+          "cc": "lead@test.com",
+          "bcc": "lead@test.com priya@test.com test@test.com",
+          "from": "spammail@gmail.com",
+          "fromDate": "06/06/2020",
+          "fromFolder": "spam",
+          "id": "sp2",
+          "subject": "Reg: offers related to fashion",
+          "to": "tospammail@gmail.com"
+        },
+        "sp3": {
+          "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+          "cc": "lead@test.com",
+          "bcc": "lead@test.com priya@test.com test@test.com",
+          "from": "chakravarthi@gmail.com",
+          "fromDate": "11/03/2020",
+          "fromFolder": "spam",
+          "id": "sp3",
+          "subject": "Reg: spam mail entered in mail",
+          "to": "rakeshsenapathi@gmail.com"
+        }
+      },
+      "settings": {
+        "useDefaultSignature": true,
+        "defaultSignature": "Thanks and Regards\nChakravarthi",
+        "mailsPerPage": 5
+      }
+    }
+  }
+}

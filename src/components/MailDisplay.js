@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router";
 import { useSelector } from "react-redux";
 
-import AllMailButtons from "./AllMailsButtons";
 import ButtonGroup from "./ButtonGroup";
+import SnackBar from "./SnackBar";
 
 const useStyles = makeStyles({
   mailDisplayPaper: {
@@ -41,6 +41,13 @@ const MailDisplay = ({ mail }) => {
   const [subject, setSubject] = useState("");
   const [body, setBody] = useState("");
   const [editingAllowed, setEditingAllowed] = useState(false);
+  const [draftopen, setDraftOpen] = useState(false);
+  const [sendopen, setSendOpen] = useState(false);
+  const [deleteopen, setDeleteOpen] = useState(false);
+  //Redux level state
+  const draftsError = useSelector((state) => state.mails.draftError);
+  const sendError = useSelector((state) => state.mails.sendError);
+  const deleteError = useSelector((state) => state.mails.deleteError);
 
   //Helper Functions
   const convertToObject = (fromFolder) => {
@@ -88,6 +95,18 @@ const MailDisplay = ({ mail }) => {
       setEditingAllowed(false);
     }
   }, [location.pathname, mail]);
+
+  useEffect(() => {
+    setDraftOpen(false);
+    setSendOpen(false);
+    setDeleteOpen(false);
+    if (draftsError) setDraftOpen(true);
+    else setDraftOpen(false);
+    if (sendError) setSendOpen(true);
+    else setSendOpen(false);
+    if (deleteError) setDeleteOpen(true);
+    else setDeleteOpen(false);
+  }, [draftsError, sendError, deleteError]);
 
   return (
     <Paper className={classes.mailDisplayPaper}>
@@ -200,25 +219,37 @@ const MailDisplay = ({ mail }) => {
           />
         </div>
         <div>
-          {location.pathname === "/AllMails" ? (
-            <AllMailButtons
-              mailId={mail ? mail.id : null}
-              fromFolder={mail ? mail.fromFolder : null}
-              isTrash={mail ? mail.isTrash : null}
-            />
-          ) : (
-            <ButtonGroup
-              enableSend={
-                from !== "" && to !== "" && body !== "" && subject !== ""
-              }
-              setEditing={editingAllowedHandler}
-              convertToObject={convertToObject}
-              mailId={mail ? mail.id : null}
-              editingAllowed={editingAllowed}
-            />
-          )}
+          <ButtonGroup
+            enableSend={
+              from !== "" && to !== "" && body !== "" && subject !== ""
+            }
+            fromFolder={mail ? mail.fromFolder : null}
+            isTrash={mail ? mail.isTrash : null}
+            setEditing={editingAllowedHandler}
+            convertToObject={convertToObject}
+            mailId={mail ? mail.id : null}
+            editingAllowed={editingAllowed}
+          />
         </div>
       </div>
+      <SnackBar
+        open={draftopen}
+        error={draftsError}
+        message="Cannot save drafts"
+        closeHandler={() => setDraftOpen(false)}
+      />
+      <SnackBar
+        open={sendopen}
+        error={sendError}
+        message="Cannot send mail"
+        closeHandler={() => setSendOpen(false)}
+      />
+      <SnackBar
+        open={deleteopen}
+        error={deleteError}
+        message="Cannot delete mail"
+        closeHandler={() => setDeleteOpen(false)}
+      />
     </Paper>
   );
 };

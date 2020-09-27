@@ -1,16 +1,11 @@
 import React, { Fragment, useState, useEffect } from "react";
 import Pagination from "@material-ui/lab/Pagination";
 import { makeStyles } from "@material-ui/core";
-import MuiAlert from "@material-ui/lab/Alert";
-import Snackbar from "@material-ui/core/Snackbar";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router";
 
 import MailItem from "./MailItem";
-
-function Alert(props) {
-  return <MuiAlert elevation={6} variant="filled" {...props} />;
-}
+import SearchBar from "./SearchBar";
 
 const useStyles = makeStyles({
   mailsPaginateDiv: {
@@ -22,8 +17,8 @@ const useStyles = makeStyles({
     marginBottom: 20,
   },
   mailsMailItemDiv: {
-    minHeight: 650,
-    maxHeight: 650,
+    minHeight: 590,
+    maxHeight: 590,
     overflowY: "scroll",
     overflowX: "hidden",
   },
@@ -32,18 +27,12 @@ const useStyles = makeStyles({
 const Mails = ({ mails, mailClick }) => {
   const classes = useStyles();
   const location = useLocation();
-  const deleteError = useSelector((state) => state.mails.deleteError);
+  //Redux level state
   const settings = useSelector((state) => state.mails.settings);
+  //component level state
   const [currentPage, setCurrentPage] = useState(1);
-  const [open, setOpen] = useState(false);
   const [mailsPerPage, setMailsPerPage] = useState(5);
-
-  const handleClose = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
-    setOpen(false);
-  };
+  const [searchText, setSearchText] = useState("");
 
   const handleChange = (event, value) => {
     setCurrentPage(value);
@@ -51,12 +40,8 @@ const Mails = ({ mails, mailClick }) => {
 
   useEffect(() => {
     setCurrentPage(1);
+    setSearchText("");
   }, [location.pathname]);
-
-  useEffect(() => {
-    if (deleteError) setOpen(true);
-    else setOpen(false);
-  }, [deleteError]);
 
   useEffect(() => {
     if (settings && settings.mailsPerPage !== 5) {
@@ -64,12 +49,27 @@ const Mails = ({ mails, mailClick }) => {
     }
   }, [settings]);
 
+  const searchChangedHandler = (event) => {
+    setSearchText(event.target.value);
+  };
+
+  const filteredMails = mails.filter((mail) => {
+    return (
+      mail.from.toLowerCase().includes(searchText.toLowerCase()) ||
+      mail.subject.toLowerCase().includes(searchText.toLowerCase())
+    );
+  });
+
   const indexOfLastMail = currentPage * mailsPerPage;
   const indexOfFirstMail = indexOfLastMail - mailsPerPage;
-  const currentMails = mails.slice(indexOfFirstMail, indexOfLastMail);
+  const currentMails = filteredMails.slice(indexOfFirstMail, indexOfLastMail);
 
   return (
     <Fragment>
+      <SearchBar
+        searchText={searchText}
+        searchChangedHandler={searchChangedHandler}
+      />
       <div className={classes.mailsMailItemDiv}>
         {currentMails.map((mail) => (
           <MailItem
@@ -86,17 +86,12 @@ const Mails = ({ mails, mailClick }) => {
       </div>
       <div className={classes.mailsPaginateDiv}>
         <Pagination
-          count={Math.ceil(mails.length / mailsPerPage)}
+          count={Math.ceil(filteredMails.length / mailsPerPage)}
           page={currentPage}
           color="primary"
           onChange={handleChange}
         />
       </div>
-      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity="error">
-          {deleteError ? `${deleteError.message} Cannot delete !` : ""}
-        </Alert>
-      </Snackbar>
     </Fragment>
   );
 };

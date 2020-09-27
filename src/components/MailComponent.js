@@ -15,7 +15,7 @@ const MailComponent = () => {
   );
 
   useEffect(() => {
-    if (location.pathname === "/Inbox") {
+    if (location.pathname === "/Inbox" || location.pathname === "/") {
       setMailDisplay(inbox[0]);
     } else if (location.pathname === "/Sent") {
       setMailDisplay(sent[0]);

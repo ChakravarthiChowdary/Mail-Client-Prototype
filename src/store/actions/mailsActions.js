@@ -65,7 +65,7 @@ export const getMails = () => {
         trashMails: tempMails.filter((mail) => mail.key === "trash"),
         draftMails: tempMails.filter((mail) => mail.key === "drafts"),
         spamMails: tempMails.filter((mail) => mail.key === "spam"),
-        allMails: tempMails,
+        allMails: tempMails.filter((mail) => mail.key !== "settings"),
         settings: settingsResponce.data,
       };
       dispatch({ type: GET_MAILS_SUCCESS, payload: mails });

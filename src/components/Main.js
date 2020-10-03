@@ -2,13 +2,7 @@ import React, { useEffect, useCallback, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  Button,
-  CircularProgress,
-  Typography,
-  Backdrop,
-} from "@material-ui/core";
-import { Cached } from "@material-ui/icons";
+import { CircularProgress, Backdrop } from "@material-ui/core";
 import { Route, Switch } from "react-router";
 
 import NavBar from "./NavBar";
@@ -16,6 +10,8 @@ import { getMails } from "../store/actions/mailsActions";
 import Settings from "./Settings";
 import MailComponent from "./MailComponent";
 import Compose from "./Compose";
+import ErrorComponent from "./ErrorComponent";
+import Logout from "./Logout";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -81,30 +77,7 @@ const Main = () => {
   }, [loading]);
 
   if (error) {
-    return (
-      <div className={classes.root}>
-        <NavBar />
-        <main className={classes.content}>
-          <div className={classes.mainCircularProgress}>
-            <Backdrop className={classes.backdrop} open={true}>
-              <div className={classes.mainErrorDiv}>
-                <Typography variant="h5" className={classes.mainErrorMessage}>
-                  {error.message}
-                </Typography>
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  startIcon={<Cached />}
-                  onClick={loadMails}
-                >
-                  Try Again
-                </Button>
-              </div>
-            </Backdrop>
-          </div>
-        </main>
-      </div>
-    );
+    return <ErrorComponent loadMails={loadMails} />;
   }
 
   return (
@@ -126,6 +99,7 @@ const Main = () => {
             <Switch>
               <Route path="/settings" component={Settings} />
               <Route path="/Compose" component={Compose} />
+              <Route path="/Logout" component={Logout} />
               <Route path="/" component={MailComponent} />
             </Switch>
           </Grid>

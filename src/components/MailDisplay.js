@@ -31,7 +31,6 @@ const useStyles = makeStyles({
 const MailDisplay = ({ mail }) => {
   const classes = useStyles();
   const location = useLocation();
-  const unChangedmail = useSelector((state) => state.mails.allmails);
 
   //Component level state
   const [from, setFrom] = useState("");
@@ -48,8 +47,9 @@ const MailDisplay = ({ mail }) => {
   const draftsError = useSelector((state) => state.mails.draftError);
   const sendError = useSelector((state) => state.mails.sendError);
   const deleteError = useSelector((state) => state.mails.deleteError);
+  const unChangedmail = useSelector((state) => state.mails.allmails);
 
-  //Helper Functions
+  //To convert all mail data to JSON Object.
   const convertToObject = (fromFolder) => {
     return {
       from: from,
@@ -62,11 +62,12 @@ const MailDisplay = ({ mail }) => {
     };
   };
 
+  //Toggle editing state.
   const editingAllowedHandler = () => {
     setEditingAllowed((prevState) => !prevState);
   };
 
-  //Hooks
+  //to set mail field values if mail is available.
   useEffect(() => {
     if (mail) {
       setFrom(mail.from);
@@ -78,6 +79,7 @@ const MailDisplay = ({ mail }) => {
     }
   }, [mail]);
 
+  //To set to previous mail fields after editing or sending or drafting the mail.
   useEffect(() => {
     if (mail) {
       const unChanged = unChangedmail.find((allmail) => allmail.id === mail.id);
@@ -96,10 +98,8 @@ const MailDisplay = ({ mail }) => {
     }
   }, [location.pathname, mail]);
 
+  //To display snack bar when error occured.
   useEffect(() => {
-    setDraftOpen(false);
-    setSendOpen(false);
-    setDeleteOpen(false);
     if (draftsError) setDraftOpen(true);
     else setDraftOpen(false);
     if (sendError) setSendOpen(true);
@@ -232,6 +232,7 @@ const MailDisplay = ({ mail }) => {
           />
         </div>
       </div>
+      {/* Snack bars to display error message. */}
       <SnackBar
         open={draftopen}
         error={draftsError}

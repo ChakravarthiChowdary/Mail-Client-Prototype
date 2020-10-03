@@ -34,6 +34,7 @@ export const getMails = () => {
       const response = await axios.get(
         "https://mail-client-afecb.firebaseio.com/mails/j743JnyWeSeR5vHIdNxbrrf3FAJ2.json"
       );
+      //Get settings from the API
       const settingsResponce = await axios.get(
         "https://mail-client-afecb.firebaseio.com/mails/j743JnyWeSeR5vHIdNxbrrf3FAJ2/settings.json"
       );
@@ -94,7 +95,7 @@ export const deleteMail = (mailId, path) => {
           deletedMail
         );
       } else {
-        //If Mail is from trash folder remove the mail just from trash folder.
+        //If Mail is from trash folder remove the mail permanently from trash folder.
         await axios.delete(
           `https://mail-client-afecb.firebaseio.com/mails/j743JnyWeSeR5vHIdNxbrrf3FAJ2/trash/${deletedMail.id}.json`
         );
@@ -116,6 +117,7 @@ export const sendMail = (mail) => {
       //Create new id dynamically
       const sendMailsLength = getState().mails.sent.length;
       mail.id = `s${sendMailsLength + 1}`;
+
       //Setting current date for the mail
       const date = new Date();
       mail.fromDate = `${date.getDate()}/${
@@ -165,7 +167,7 @@ export const restoreDraft = (mail) => {
   return async (dispatch) => {
     try {
       dispatch({ type: RESTORE_DELETED_START });
-      //Patching same mail to the folder.
+      //Patching mail to the folder where it belongs.
       await axios.patch(
         `https://mail-client-afecb.firebaseio.com/mails/j743JnyWeSeR5vHIdNxbrrf3FAJ2/${mail.fromFolder}/${mail.id}.json`,
         mail

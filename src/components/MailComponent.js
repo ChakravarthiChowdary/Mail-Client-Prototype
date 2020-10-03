@@ -1,7 +1,6 @@
 import React, { useEffect, useState, Fragment } from "react";
 import Grid from "@material-ui/core/Grid";
 import { useSelector } from "react-redux";
-
 import { Route, Switch, useLocation } from "react-router";
 
 import MailDisplay from "./MailDisplay";
@@ -9,7 +8,9 @@ import GridItem from "./GridItem";
 
 const MailComponent = () => {
   const location = useLocation();
+  //Component level state.
   const [mailDisplay, setMailDisplay] = useState(null);
+  //Redux Level state
   const { inbox, drafts, sent, trash, spam, allmails } = useSelector(
     (state) => state.mails
   );
@@ -30,6 +31,7 @@ const MailComponent = () => {
     }
   }, [location.pathname, inbox, sent, trash, drafts]);
 
+  //To display mail eloborately when a mail is clicked.
   const mailClickedHandler = (mail) => {
     setMailDisplay(mail);
   };

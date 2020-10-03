@@ -109,6 +109,7 @@ const mailsReducer = (state = initialState, action) => {
         draftLoading: false,
         draftError: action.payload,
       });
+    //Restoring mail action types.
     case RESTORE_DELETED_START:
       return stateUpdate(state, { restoreLoading: true });
     case RESTORE_DELETED_SUCCESS:
@@ -126,6 +127,7 @@ const mailsReducer = (state = initialState, action) => {
         restoreLoading: false,
         restoreError: action.payload,
       });
+    //Save Settings action types.
     case SAVE_SETTINGS_START:
       return stateUpdate(state, { settingsLoading: true });
     case SAVE_SETTINGS_SUCCESS:

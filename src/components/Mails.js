@@ -34,25 +34,30 @@ const Mails = ({ mails, mailClick }) => {
   const [mailsPerPage, setMailsPerPage] = useState(5);
   const [searchText, setSearchText] = useState("");
 
+  //To set the current page.
   const handleChange = (event, value) => {
     setCurrentPage(value);
   };
 
+  //To set current page to 1 and to reset search text whenever path changes.
   useEffect(() => {
     setCurrentPage(1);
     setSearchText("");
   }, [location.pathname]);
 
+  //To set mails per page whenever setting is changed.
   useEffect(() => {
     if (settings && settings.mailsPerPage !== 5) {
       setMailsPerPage(settings.mailsPerPage);
     }
   }, [settings]);
 
+  //To set the search text when changed.
   const searchChangedHandler = (event) => {
     setSearchText(event.target.value);
   };
 
+  //Filter mails based on search text.
   const filteredMails = mails.filter((mail) => {
     return (
       mail.from.toLowerCase().includes(searchText.toLowerCase()) ||
@@ -62,6 +67,7 @@ const Mails = ({ mails, mailClick }) => {
 
   const indexOfLastMail = currentPage * mailsPerPage;
   const indexOfFirstMail = indexOfLastMail - mailsPerPage;
+  //Current mails are received from the filtered mails. These are displayed by pagination.
   const currentMails = filteredMails.slice(indexOfFirstMail, indexOfLastMail);
 
   return (

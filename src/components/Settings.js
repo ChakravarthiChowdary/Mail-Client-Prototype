@@ -73,6 +73,7 @@ const Settings = () => {
   const settingsloading = useSelector((state) => state.mails.settingsLoading);
   const settingsError = useSelector((state) => state.mails.settingsError);
 
+  //To set settings fields if settings exists.
   useEffect(() => {
     if (settings) {
       setMailsPerPage(settings.mailsPerPage);
@@ -82,11 +83,13 @@ const Settings = () => {
     }
   }, [settings]);
 
+  //To display snack bar when error occurs while submitting.
   useEffect(() => {
     if (settingsError) setOpen(true);
     else setOpen(false);
   }, [settingsError]);
 
+  //To handle all input changes and update component level state.
   const inputChangedHandler = (event, field) => {
     setTouched(true);
     setError(null);
@@ -102,6 +105,7 @@ const Settings = () => {
     }
   };
 
+  //To save settings to DB.
   const saveClickedHandler = () => {
     if (touched) {
       if (checked && signature === "") {

@@ -24,13 +24,17 @@ const useStyles = makeStyles({
   },
 });
 
+//This is a single mail item component.
 const MailItem = ({ mail, mailClick, style }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const location = useLocation();
+
+  //Deletes mail when clicked.
   const deleteClickedHandler = () => {
     dispatch(deleteMail(mail.id, location.pathname));
   };
+
   return (
     <Paper
       elevation={3}
